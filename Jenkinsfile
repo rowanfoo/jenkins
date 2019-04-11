@@ -5,7 +5,7 @@ pipeline{
         stage('Compile Stage'){
             steps{
                 withMaven(maven : 'maven'){
-                    sh 'hello'
+                    sh 'echo hello'
                     sh 'pwd'
                     sh 'mvn -version'
                     sh 'mvn compile'
@@ -16,7 +16,7 @@ pipeline{
           stage('Build Stage'){
                     steps{
                         withMaven(maven : 'maven'){
-                            sh 'Build time'
+                            sh 'echo Build time'
                             sh 'pwd'
                             sh 'mvn package'
 
