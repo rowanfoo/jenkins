@@ -1,4 +1,8 @@
 pipeline{
+ environment {
+    registry = "rowanf/jenkins"
+    registryCredential = ‘docker’
+  }
     agent any
 
     stages{
@@ -28,8 +32,8 @@ pipeline{
     stage('DOCKER TIME'){
         steps{
             script {
-                docker.build('helo.image')
-                  sh 'pwd'
+                docker.build registry + ":$BUILD_NUMBER"
+                sh 'pwd'
             }
         }
     }
