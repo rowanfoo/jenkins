@@ -13,18 +13,27 @@ pipeline{
                 }
             }
         }
-          stage('Build Stage'){
-                    steps{
-                        withMaven(maven : 'maven'){
-                            sh 'echo Build time'
-                            sh 'pwd'
-                            sh 'mvn package'
-
-                        }
-                    }
-                }
-
     }
+    stage('Build Stage'){
+        steps{
+            withMaven(maven : 'maven'){
+                sh 'echo Build time'
+                sh 'pwd'
+                sh 'mvn package'
+
+            }
+        }
+    }
+
+    stage('DOCKER TIME'){
+        steps{
+            script {
+                docker.build('helo.image')
+                  sh 'pwd'
+            }
+        }
+    }
+
 
 
 
