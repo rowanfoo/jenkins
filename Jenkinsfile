@@ -1,8 +1,8 @@
 pipeline{
  environment {
     registry = "rowanf/jenkins"
-    registryCredential = ‘docker’
-     dockerImage = ''
+    registryCredential = "docker"
+     dockerImage = ""
   }
     agent any
 
